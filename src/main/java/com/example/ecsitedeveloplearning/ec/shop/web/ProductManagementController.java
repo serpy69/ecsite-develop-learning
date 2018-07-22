@@ -9,31 +9,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.ecsitedeveloplearning.ec.shop.model.Product;
-import com.example.ecsitedeveloplearning.ec.shop.service.ShopService;
+import com.example.ecsitedeveloplearning.ec.shop.service.ManagementService;
 
 @Controller
 @RequestMapping(path="/shop")
-public class ShopController {
+public class ProductManagementController {
 	
 	@Autowired
-	private ShopService shopService;
+	private ManagementService managementService;
 	
-	// 商品情報全件表示
-	@RequestMapping(value = "/top", method = RequestMethod.GET)
+	//商品情報全件表示
+	@RequestMapping(value = "/ManagementTop", method = RequestMethod.GET)
 	public ModelAndView viewProduct(Model model) {
-		List<Product> products = shopService.findAll();
-		ModelAndView mv = new ModelAndView("shop/top");
-		mv.addObject("products", products);
-		
-		//model.addAttribute("products", products);
+		List<Product> products = managementService.findAll();
+		ModelAndView mv = new ModelAndView("shop/ManagementTop");
+		mv.addObject("Products", products);
 		
 		System.out.println("products : " + products.toString());
 		return mv;
 	}
-	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String tester() {
-		return "shop/test";
-	}
-	
+
 }
