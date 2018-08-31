@@ -13,7 +13,7 @@ import com.example.ecsitedeveloplearning.ec.shop.service.ManagementService;
 
 @Controller
 @RequestMapping(path="/shop")
-public class ProductManagementController {
+public class ManagementController {
 	
 	@Autowired
 	private ManagementService managementService;

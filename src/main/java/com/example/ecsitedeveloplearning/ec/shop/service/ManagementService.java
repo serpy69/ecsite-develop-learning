@@ -11,36 +11,42 @@ import com.example.ecsitedeveloplearning.ec.shop.repository.ManagementRepository
 
 @Service
 public class ManagementService {
-	
+
 	@Autowired
 	ManagementRepository managementRepository;
-	
+
 	// 商品情報全件取得
 	public List<Product> findAll() {
 		return managementRepository.findAll();
 	}
-	
+
 	// 商品情報取得
-		public Optional<Product> findOne(long id) {
-			return managementRepository.findById(id);
-		}
-		
-		// 商品情報追加
-		public void insert(Product product) {
-			System.out.println("insert : " + product);
-			managementRepository.save(product);
-		}
-		
-		// 商品情報削除
-		public void delete(long id) {
-			managementRepository.deleteById(id);
-		}
-		
-		public Long getCount() {
-			Long count = managementRepository.count();
-			return count;
-		}
-	
-	
+	public Optional<Product> findOne(long id) {
+		return managementRepository.findById(id);
+	}
+
+	// 商品情報追加
+	public void insert(Product product) {
+		System.out.println("insert : " + product);
+		managementRepository.save(product);
+	}
+
+	// 商品情報更新
+	public void update(Product product) {
+		System.out.println("update : " + product);
+
+	}
+
+	// 商品情報削除
+	public void delete(long id) {
+		managementRepository.deleteById(id);
+	}
+
+	public Long getCount() {
+		Long count = managementRepository.count();
+		return count;
+	}
+
+
 
 }
